@@ -20,7 +20,7 @@ export default function PostPage({ postData, content }) {
                 <section id="one">
                     <div className="inner">
                         <header className="major">
-                            <h1>Generic</h1>
+                            <h1>{postData.title}</h1>
                         </header>
                         <span className="image main"><img src="/assets/images/pic11.jpg" alt="" /></span>
                         <div dangerouslySetInnerHTML={{ __html: content }} />
@@ -40,10 +40,10 @@ export const getStaticPaths = async () => {
             slug: filename.replace('.md', '')
         }
     }));
-    console.log('paths: ', paths);
+    // console.log('paths: ', paths);
     return {
         paths,
-        fallback: false
+        fallback: false,
     }
 
 }
@@ -51,13 +51,13 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async ({ params: { slug } }) => {
     const post = fs.readFileSync(path.join('posts', `${slug}.md`)).toString();
     const postData = matter(post)
+    console.log(postData.data)
     const content = marked(postData.content)
-    console.log(content);
     return {
         props: {
             slug,
             content,
-            postData: postData.data
+            postData: postData.data,
         }
     }
 }

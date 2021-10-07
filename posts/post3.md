@@ -1,6 +1,6 @@
 ---
 title: Post 3
-slug: post-3
+slug: post3
 featured_image: post-3.jpg
 date: "2065-04-23 12:03:05"
 ---
