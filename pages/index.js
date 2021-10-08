@@ -38,7 +38,7 @@ export default function Home({ posts }) {
           <section id="one" className="tiles">
             {/* Loop over posts */}
             {posts.map((post) => (
-              <article key={id}>
+              <article key={post.id}>
                 <span className="image">
                   <img src="images/pic01.jpg" alt="" />
                 </span>
